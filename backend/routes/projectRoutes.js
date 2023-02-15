@@ -1,33 +1,23 @@
-const express = require("express")
+const express = require("express");
+const { createPost, getAllProjects, singleProject, deleteProject, updateProject } = require("../controller/projectController");
+
 
 // router
-const router = express.Router()
+const router = express.Router();
 
 // get allP projects
-router.get("/",(req,res) => {
-    res.json({message: "welcome to express app"})
-})
+router.get("/", getAllProjects);
 
 // get single project
-router.get("/:id", (req,res) => {
-    res.json({message: "single project"})
-})
+router.get("/:id", singleProject);
 
 // create post
-router.post("/", (req,res) => {
-    res.json({message: "project creates successfully"})
-})
+router.post("/", createPost);
 
 // project delete
-router.delete("/:id", (req,res) => {
-    res.json({message: "project delete successfully"})
-})
+router.delete("/:id", deleteProject);
 
 // project update
-router.patch("/:id", (req,res) => {
-    res.json({message: "project updated successfully"})
-})
+router.patch("/:id", updateProject);
 
-
-
-module.exports = router
+module.exports = router;
